@@ -1,5 +1,8 @@
 ./target/*
 /devops-workshop
 /tweet-trend
-
-
+/*.pem
+**/*.tfstate
+**/*.tfstate.*
+**/.terraform/*
+**/.terraform.lock.hcl
