@@ -1,0 +1,32 @@
+--- 
+- hosts: jenkins_master
+  become: true
+  tasks: 
+  - name: Run the equivalent of "apt-get update" as a separate step
+    apt:
+      update_cache: yes
+  - name: Add an jenkins key
+    apt_key:
+      url: https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+      state: present
+  - name: Add jenkins repository 
+    apt_repository:
+      repo: 'deb https://pkg.jenkins.io/debian-stable binary/'
+      state: present  
+  - name: install jdk 17
+    apt:
+      name: openjdk-17-jre
+      state: present
+  - name: install  jenkins
+    apt:
+      name: jenkins
+      state: present    
+  - name: start the jenkins service
+    service:
+      name: jenkins
+      state: started
+  - name: enable  the jenkins service
+    service:
+      name: jenkins
+      enabled: yes
+      

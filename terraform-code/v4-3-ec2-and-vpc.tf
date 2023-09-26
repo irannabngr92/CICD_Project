@@ -2,7 +2,7 @@ provider "aws" {
     region= "us-east-1"
 }
 resource "aws_instance" "demo-server"{
-    ami= "ami-03a6eaae9938c858c"
+    ami= "ami-053b0d53c279acc90"
     instance_type= "t2.micro"
     key_name="demo-key"
     vpc_security_group_ids = [aws_security_group.demo-sg.id]
