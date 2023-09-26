@@ -43,7 +43,7 @@ resource "aws_security_group" "demo-sg" {
   }
 
   tags = {
-    name = "ssh-port "
+    name = "ssh-port and jenkins "
   }
 }
 
